@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryleigh Roman - Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediaqueries.css">
+    <style>
+        /* Background Image with Low Opacity */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('./assets/profile-pic.jpg'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.5; /* Adjust opacity (0.1 to 0.3 works well) */
+            z-index: -1;
+        }
+        
+        /* Ensure content is above the background */
+        body {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Enhanced Gallery Styles */
+        .gallery-header {
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 10rem;
+        }
+        
+        .gallery-item {
+            border: 2px solid #39ff14;
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: rgba(26, 26, 26, 0.85); /* Slightly transparent */
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            backdrop-filter: blur(5px); /* Frosted glass effect */
+        }
+        
+        .gallery-img-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            background: rgba(10, 10, 10, 0.7);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-img {
+            max-width: 100%;
+            max-height: 300px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 0.5rem;
+            transition: transform 0.5s ease;
+        }
+        
+        /* Zoom-on-Hover Effect */
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.05);
+        }
+        
+        /* Fullscreen Lightbox Styles */
+        .fullscreen-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .fullscreen-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .fullscreen-img {
+            max-width: 90%;
+            max-height: 90%;
+            border: 2px solid #39ff14;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.7);
+            object-fit: contain;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #39ff14;
+            font-size: 2rem;
+            cursor: pointer;
+            text-shadow: 0 0 10px #39ff14;
+            transition: all 0.3s ease;
+        }
+        
+        .close-btn:hover {
+            color: #7cff7c;
+            transform: scale(1.1);
+        }
+        
+        .gallery-caption {
+            padding: 1.2rem;
+            text-align: center;
+            background-color: rgba(26, 26, 26, 0.8);
+            color: #39ff14;
+            border-top: 1px solid rgba(57, 255, 20, 0.3);
+        }
+        
+        .gallery-caption h3 {
+            margin-bottom: 0.5rem;
+            color: #7cff7c;
+        }
+        
+        /* Responsive Adjustments */
+        @media screen and (max-width: 1200px) {
+            .gallery-container {
+                padding: 2rem 5%;
+            }
+        }
+        
+        @media screen and (max-width: 600px) {
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-img {
+                max-height: 250px;
+            }
+            
+            .fullscreen-img {
+                max-width: 95%;
+                max-height: 80%;
+            }
+            
+            /* Reduce blur on mobile for performance */
+            .gallery-item {
+                backdrop-filter: blur(2px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="desktop-nav">
+        <div class="logo">Ryleigh Roman</div>
+        <div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#experience">Experience</a></li>
+                <li><a href="index.html#projects">Portfolio</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="gallery.html" style="text-decoration: underline; color: #7cff7c;">Gallery</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <nav id="hamburger-nav">
+        <div class="logo">Ryleigh Roman</div>
+        <div class="hamburger-menu">
+            <div class="hamburger-icon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="menu-links">
+                <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+                <li><a href="index.html#about" onclick="toggleMenu()">About</a></li>
+                <li><a href="index.html#experience" onclick="toggleMenu()">Experience</a></li>
+                <li><a href="index.html#projects" onclick="toggleMenu()">Portfolio</a></li>
+                <li><a href="index.html#contact" onclick="toggleMenu()">Contact</a></li>
+                <li><a href="gallery.html" onclick="toggleMenu()" style="color: #7cff7c;">Gallery</a></li>
+            </div>
+        </div>
+    </nav>
+
+    <section id="gallery">
+        <div class="gallery-header">
+            <p class="section__text__p1">Explore My</p>
+            <h1 class="title">Art Gallery</h1>
+        </div>
+        
+        <div class="gallery-container">
+            <!-- Gallery Items (same as before) -->
+            <div class="gallery-item">
+                <div class="gallery-img-container">
+                    <img src="./gallery/gallery1.jpg" alt="Floral Sleeve Tattoo" class="gallery-img">
+                </div>
+                <div class="gallery-caption">
+                    <h3>Floral Sleeve</h3>
+                    <p>Black & Grey Realism</p>
+                </div>
+            </div>
+            
+            <!-- Gallery Item 2 -->
+            <div class="gallery-item">
+                <div class="gallery-img-container">
+                    <img src="./gallery/gallery2.jpg" alt="Hand and Finger Tattoo" class="gallery-img">
+                </div>
+                <div class="gallery-caption">
+                    <h3>Hand and Finger Tattoo</h3>
+                    <p>Blackwork</p>
+                </div>
+            </div>
+            
+            <!-- Gallery Item 3 -->
+            <div class="gallery-item">
+                <div class="gallery-img-container">
+                    <img src="./gallery/gallery3.jpg" alt="Finger Tattoo" class="gallery-img">
+                </div>
+                <div class="gallery-caption">
+                    <h3>Finger Tattoo</h3>
+                    <p>Black and white</p>
+                </div>
+            </div>
+            
+            <!-- Gallery Item 4 -->
+            <div class="gallery-item">
+                <div class="gallery-img-container">
+                    <img src="./gallery/gallery4.jpg" alt="Small custom design" class="gallery-img">
+                </div>
+                <div class="gallery-caption">
+                    <h3>Small Custom Desgin</h3>
+                    <p>creative custom</p>
+                </div>
+            </div>
+            
+            <!-- Gallery Item 5 -->
+            <div class="gallery-item">
+                <div class="gallery-img-container">
+                    <img src="./gallery/gallery5.jpg" alt="Animal Portrait Tattoo" class="gallery-img">
+                </div>
+                <div class="gallery-caption">
+                    <h3>Animal Portrait</h3>
+                    <p>Bug 2d picture</p>
+                </div>
+            </div>
+            
+            <!-- Gallery Item 6 -->
+            <div class="gallery-item">
+                <div class="gallery-img-container">
+                    <img src="./gallery/gallery6.jpg" alt="Custom design" class="gallery-img">
+                </div>
+                <div class="gallery-caption">
+                    <h3>Customs Desgin</h3>
+                    <p>Freehand Drawing</p>
+                </div>
+            </div>
+            
+            <!-- Gallery Item 7 -->
+            <div class="gallery-item">
+                <div class="gallery-img-container">
+                    <img src="./gallery/gallery7.jpg" alt="Color Flower" class="gallery-img">
+                </div>
+                <div class="gallery-caption">
+                    <h3>Color Flower</h3>
+                    <p>Color Theory</p>
+                </div>
+            </div>
+            
+            <!-- Gallery Item 8 -->
+            <div class="gallery-item">
+                <div class="gallery-img-container">
+                    <img src="./gallery/gallery8.jpg" alt="3d Tattoo" class="gallery-img">
+                </div>
+                <div class="gallery-caption">
+                    <h3>Custom 3D Tattoo</h3>
+                    <p>3d tattoos</p>
+                </div>
+            </div>
+
+            <!-- Gallery Item 9 -->
+            <div class="gallery-item">
+                <div class="gallery-img-container">
+                    <img src="./gallery/gallery9.jpg" alt="Medusa Tattoo" class="gallery-img">
+                </div>
+                <div class="gallery-caption">
+                    <h3>Medusa Tattoo</h3>
+                    <p>3d tattoos</p>
+                </div>
+            </div>
+
+            <!-- Gallery Item 10 -->
+            <div class="gallery-item">
+                <div class="gallery-img-container">
+                    <img src="./gallery/gallery10.jpg" alt="shading Tattoo" class="gallery-img">
+                </div>
+                <div class="gallery-caption">
+                    <h3>Shading Tattoo</h3>
+                    <p>3d tattoos</p>
+                </div>
+            </div>
+
+            <!-- Gallery Item 11 -->
+            <div class="gallery-item">
+                <div class="gallery-img-container">
+                    <img src="./gallery/gallery11.jpg" alt="Coraline Tattoo" class="gallery-img">
+                </div>
+                <div class="gallery-caption">
+                    <h3>Coraline Tattoo</h3>
+                    <p>Halloween tattoos</p>
+                </div>
+            </div>
+
+            <!-- Gallery Item 12 -->
+            <div class="gallery-item">
+                <div class="gallery-img-container">
+                    <img src="./gallery/gallery12.jpg" alt="color pop Tattoo" class="gallery-img">
+                </div>
+                <div class="gallery-caption">
+                    <h3>Popping Color Tattoo</h3>
+                    <p>Colorful tattoos</p>
+                </div>
+            </div>
+
+            <!-- Gallery Item 13 -->
+            <div class="gallery-item">
+                <div class="gallery-img-container">
+                    <img src="./gallery/gallery13.jpg" alt="fun animation" class="gallery-img">
+                </div>
+                <div class="gallery-caption">
+                    <h3>Animation Tattoo</h3>
+                    <p>Fun Animated Tattoo</p>
+                </div>
+            </div>
+
+            <!-- Gallery Item 14 -->
+            <div class="gallery-item">
+                <div class="gallery-img-container">
+                    <img src="./gallery/gallery14.jpg" alt="custom Tattoo" class="gallery-img">
+                </div>
+                <div class="gallery-caption">
+                    <h3>Colorful freehand</h3>
+                    <p>custom colorful</p>
+                </div>
+            </div>
+
+            <!-- Gallery Item 15 -->
+            <div class="gallery-item">
+                <div class="gallery-img-container">
+                    <img src="./gallery/gallery15.jpg" alt="Eyebrow Tattoo" class="gallery-img">
+                </div>
+                <div class="gallery-caption">
+                    <h3>Nanoblading Tattoo</h3>
+                    <p>Eyebrow tattoos</p>
+                </div>
+            </div>
+        </div>
+            
+        
+    </section>
+
+    <!-- Fullscreen Lightbox -->
+    <div class="fullscreen-overlay" id="fullscreenOverlay">
+        <span class="close-btn" onclick="closeFullscreen()">&times;</span>
+        <img src="" alt="Fullscreen view" class="fullscreen-img" id="fullscreenImg">
+    </div>
+
+    <footer>
+        <nav>
+            <div class="nav-links-container">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#experience">Experience</a></li>
+                    <li><a href="index.html#projects">Portfolio</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="gallery.html" style="color: #39ff14;">Gallery</a></li>
+                </ul>
+            </div>
+        </nav>
+        <p>Copyright &#169; 2025 Ryleigh Roman. All Rights Reserved. Made by: Bibek Kumar Tamang♥</p>
+    </footer>
+
+    <script>
+        // Fullscreen Lightbox Functionality
+        function openFullscreen(imgSrc) {
+            const overlay = document.getElementById('fullscreenOverlay');
+            const fullscreenImg = document.getElementById('fullscreenImg');
+            
+            fullscreenImg.src = imgSrc;
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Close with ESC key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeFullscreen();
+                }
+            });
+        }
+        
+        function closeFullscreen() {
+            const overlay = document.getElementById('fullscreenOverlay');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // Initialize gallery image clicks
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryImages = document.querySelectorAll('.gallery-img');
+            
+            galleryImages.forEach(img => {
+                img.addEventListener('click', function() {
+                    openFullscreen(this.src);
+                });
+            });
+            
+            // Close when clicking outside image
+            document.getElementById('fullscreenOverlay').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeFullscreen();
+                }
+            });
+        });
+        
+        // Hamburger menu toggle
+        function toggleMenu() {
+            const menuLinks = document.querySelector('.menu-links');
+            const hamburgerIcon = document.querySelector('.hamburger-icon');
+            menuLinks.classList.toggle('open');
+            hamburgerIcon.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
