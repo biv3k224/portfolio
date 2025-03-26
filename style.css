@@ -180,9 +180,15 @@ section {
   width: 400px;
   margin: auto 0;
   border: 2px solid var(--neon-green);
-  border-radius: 50%;
+  border-radius: 2.5rem; /* Smaller radius for subtle rounded corners */
   overflow: hidden;
   box-shadow: 0 0 20px rgba(15, 255, 80, 0.3);
+  /* Optional: Add neon glow effect on hover */
+  transition: box-shadow 0.3s ease;
+}
+
+.section__pic-container:hover {
+  box-shadow: 0 0 30px rgba(15, 255, 80, 0.6); /* Enhanced glow on hover */
 }
 
 .section__text {
