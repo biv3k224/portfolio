@@ -16,11 +16,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('./assets/profile-pic.jpg'); /* Replace with your image path */
+            background-image: url('./assets/profile-pic.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            opacity: 0.5; /* Adjust opacity (0.1 to 0.3 works well) */
+            opacity: 0.5;
             z-index: -1;
         }
         
@@ -38,7 +38,7 @@
         
         .gallery-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             padding: 2rem 10rem;
         }
@@ -48,11 +48,12 @@
             border-radius: 1rem;
             overflow: hidden;
             transition: all 0.3s ease;
-            background: rgba(26, 26, 26, 0.85); /* Slightly transparent */
+            background: rgba(26, 26, 26, 0.85);
             display: flex;
             flex-direction: column;
             cursor: pointer;
-            backdrop-filter: blur(5px); /* Frosted glass effect */
+            backdrop-filter: blur(5px);
+            height: 100%;
         }
         
         .gallery-img-container {
@@ -64,6 +65,7 @@
             background: rgba(10, 10, 10, 0.7);
             overflow: hidden;
             position: relative;
+            min-height: 300px;
         }
         
         .gallery-img {
@@ -76,7 +78,11 @@
             transition: transform 0.5s ease;
         }
         
-        /* Zoom-on-Hover Effect */
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.5);
+        }
+        
         .gallery-item:hover .gallery-img {
             transform: scale(1.05);
         }
@@ -147,9 +153,16 @@
             }
         }
         
+        @media screen and (max-width: 900px) {
+            .gallery-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
         @media screen and (max-width: 600px) {
             .gallery-container {
                 grid-template-columns: 1fr;
+                padding: 2rem 1rem;
             }
             
             .gallery-img {
@@ -161,9 +174,12 @@
                 max-height: 80%;
             }
             
-            /* Reduce blur on mobile for performance */
             .gallery-item {
                 backdrop-filter: blur(2px);
+            }
+            
+            .gallery-img-container {
+                min-height: 250px;
             }
         }
     </style>
@@ -209,7 +225,7 @@
         </div>
         
         <div class="gallery-container">
-            <!-- Gallery Items (same as before) -->
+            <!-- Gallery Item 1 -->
             <div class="gallery-item">
                 <div class="gallery-img-container">
                     <img src="./gallery/gallery1.jpg" alt="Floral Sleeve Tattoo" class="gallery-img">
@@ -248,8 +264,8 @@
                     <img src="./gallery/gallery4.jpg" alt="Small custom design" class="gallery-img">
                 </div>
                 <div class="gallery-caption">
-                    <h3>Small Custom Desgin</h3>
-                    <p>creative custom</p>
+                    <h3>Small Custom Design</h3>
+                    <p>Creative custom</p>
                 </div>
             </div>
             
@@ -260,7 +276,7 @@
                 </div>
                 <div class="gallery-caption">
                     <h3>Animal Portrait</h3>
-                    <p>Bug 2d picture</p>
+                    <p>Bug 2D picture</p>
                 </div>
             </div>
             
@@ -270,7 +286,7 @@
                     <img src="./gallery/gallery6.jpg" alt="Custom design" class="gallery-img">
                 </div>
                 <div class="gallery-caption">
-                    <h3>Customs Desgin</h3>
+                    <h3>Custom Design</h3>
                     <p>Freehand Drawing</p>
                 </div>
             </div>
@@ -289,11 +305,11 @@
             <!-- Gallery Item 8 -->
             <div class="gallery-item">
                 <div class="gallery-img-container">
-                    <img src="./gallery/gallery8.jpg" alt="3d Tattoo" class="gallery-img">
+                    <img src="./gallery/gallery8.jpg" alt="3D Tattoo" class="gallery-img">
                 </div>
                 <div class="gallery-caption">
                     <h3>Custom 3D Tattoo</h3>
-                    <p>3d tattoos</p>
+                    <p>3D tattoos</p>
                 </div>
             </div>
 
@@ -304,18 +320,18 @@
                 </div>
                 <div class="gallery-caption">
                     <h3>Medusa Tattoo</h3>
-                    <p>3d tattoos</p>
+                    <p>3D tattoos</p>
                 </div>
             </div>
 
             <!-- Gallery Item 10 -->
             <div class="gallery-item">
                 <div class="gallery-img-container">
-                    <img src="./gallery/gallery10.jpg" alt="shading Tattoo" class="gallery-img">
+                    <img src="./gallery/gallery10.jpg" alt="Shading Tattoo" class="gallery-img">
                 </div>
                 <div class="gallery-caption">
                     <h3>Shading Tattoo</h3>
-                    <p>3d tattoos</p>
+                    <p>3D tattoos</p>
                 </div>
             </div>
 
@@ -333,7 +349,7 @@
             <!-- Gallery Item 12 -->
             <div class="gallery-item">
                 <div class="gallery-img-container">
-                    <img src="./gallery/gallery12.jpg" alt="color pop Tattoo" class="gallery-img">
+                    <img src="./gallery/gallery12.jpg" alt="Color pop Tattoo" class="gallery-img">
                 </div>
                 <div class="gallery-caption">
                     <h3>Popping Color Tattoo</h3>
@@ -344,7 +360,7 @@
             <!-- Gallery Item 13 -->
             <div class="gallery-item">
                 <div class="gallery-img-container">
-                    <img src="./gallery/gallery13.jpg" alt="fun animation" class="gallery-img">
+                    <img src="./gallery/gallery13.jpg" alt="Fun animation" class="gallery-img">
                 </div>
                 <div class="gallery-caption">
                     <h3>Animation Tattoo</h3>
@@ -355,11 +371,11 @@
             <!-- Gallery Item 14 -->
             <div class="gallery-item">
                 <div class="gallery-img-container">
-                    <img src="./gallery/gallery14.jpg" alt="custom Tattoo" class="gallery-img">
+                    <img src="./gallery/gallery14.jpg" alt="Custom Tattoo" class="gallery-img">
                 </div>
                 <div class="gallery-caption">
-                    <h3>Colorful freehand</h3>
-                    <p>custom colorful</p>
+                    <h3>Colorful Freehand</h3>
+                    <p>Custom colorful</p>
                 </div>
             </div>
 
@@ -374,8 +390,6 @@
                 </div>
             </div>
         </div>
-            
-        
     </section>
 
     <!-- Fullscreen Lightbox -->

@@ -15,6 +15,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: all 0.3s ease;
 }
 
 body {
@@ -22,6 +23,7 @@ body {
   background-color: var(--darker-bg);
   color: var(--text-primary);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 html {
@@ -30,11 +32,6 @@ html {
 
 p {
   color: var(--text-secondary);
-}
-
-/* TRANSITION */
-a, .btn {
-  transition: all 0.3s ease;
 }
 
 /* DESKTOP NAV */
@@ -155,9 +152,8 @@ a:hover {
 /* SECTIONS */
 section {
   padding-top: 4vh;
-  height: 96vh;
+  min-height: 96vh;
   margin: 0 10rem;
-  min-height: fit-content;
   background-color: var(--dark-bg);
   border-bottom: 1px solid rgba(15, 255, 80, 0.1);
 }
@@ -180,15 +176,13 @@ section {
   width: 400px;
   margin: auto 0;
   border: 2px solid var(--neon-green);
-  border-radius: 2.5rem; /* Smaller radius for subtle rounded corners */
+  border-radius: 2.5rem;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(15, 255, 80, 0.3);
-  /* Optional: Add neon glow effect on hover */
-  transition: box-shadow 0.3s ease;
 }
 
 .section__pic-container:hover {
-  box-shadow: 0 0 30px rgba(15, 255, 80, 0.6); /* Enhanced glow on hover */
+  box-shadow: 0 0 30px rgba(15, 255, 80, 0.6);
 }
 
 .section__text {
@@ -230,7 +224,6 @@ section {
   cursor: pointer;
   height: 2rem;
   filter: drop-shadow(0 0 2px var(--neon-green)) brightness(1.2);
-  transition: all 0.3s ease;
 }
 
 .icon:hover {
@@ -247,7 +240,6 @@ section {
 
 .btn {
   font-weight: 600;
-  transition: all 0.3s ease;
   padding: 1rem;
   width: 8rem;
   border-radius: 2rem;
@@ -282,7 +274,7 @@ section {
   color: var(--neon-hover);
 }
 
-/*  SECTION */
+/* ABOUT SECTION */
 #about {
   position: relative;
 }
@@ -322,7 +314,6 @@ section {
   border-radius: 2rem;
   border: 1px solid var(--neon-green);
   text-align: center;
-  transition: all 0.3s ease;
 }
 
 .details-container:hover {
@@ -381,7 +372,6 @@ article .icon {
 .color-container {
   border-color: var(--neon-green);
   background: var(--card-bg);
-  transition: all 0.3s ease;
 }
 
 .color-container:hover {
@@ -422,7 +412,6 @@ article .icon {
   background: var(--card-bg);
   margin: 2rem auto;
   padding: 0.5rem;
-  transition: all 0.3s ease;
 }
 
 .contact-info-upper-container:hover {
