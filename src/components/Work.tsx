@@ -8,22 +8,22 @@ const projects = [
     title: "Ticket Reservation System",
     category: "High-Throughput Backend Service",
     tools: "Spring Boot, PostgreSQL, Redis, Docker",
-    image: "/images/placeholder.webp",
-    link: "https://github.com/biv3k224",
+    image: "/public/ticket.jpeg",
+    link: "https://github.com/biv3k224/High-Throughput-Ticket-Reservation-System",
   },
   {
     title: "Real-Time Chat App",
     category: "Full-Stack Messaging Platform",
     tools: "Spring Boot WebSocket, STOMP, MongoDB, React, Docker Compose",
-    image: "/images/placeholder.webp",
-    link: "https://github.com/biv3k224",
+    image: "/public/chat.jpeg",
+    link: "https://github.com/biv3k224/chatApp",
   },
   {
     title: "Maze Solver",
     category: "Algorithm Visualization Engine",
     tools: "Spring Boot Microservices, BFS/DFS, REST APIs, Docker, Maven",
-    image: "/images/placeholder.webp",
-    link: "https://github.com/biv3k224",
+    image: "/public/maze.jpeg",
+    link: "https://github.com/biv3k224/Maze",
   },
 ];
 
