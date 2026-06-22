@@ -107,6 +107,33 @@
   font-size: 15px;
 }
 
+.carousel-highlights {
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.carousel-highlights li {
+  font-size: 14px;
+  font-weight: 300;
+  color: #c4c4c4;
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.carousel-highlights li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--accentColor);
+  font-size: 12px;
+  top: 2px;
+}
+
 .carousel-image-wrapper {
   flex: 1;
   display: flex;

@@ -18,15 +18,16 @@ const Career = () => {
                 <h4>Software Developer Intern</h4>
                 <h5>Dallo Tech · Lalitpur, Nepal</h5>
               </div>
-              <h3>2025</h3>
+              <h3>2024–25</h3>
             </div>
             <p>
-              Jan 2025 – Jun 2025. Built and extended backend REST APIs for a
-              multi-vendor e-commerce platform using Java and Spring Boot.
-              Implemented JWT-based authentication and role-based authorization.
-              Designed and maintained relational database schemas using
-              PostgreSQL/MySQL with optimized SQL queries. Containerized services
-              with Docker and deployed to AWS EC2 with S3 integration.
+              Jan 2024 – Jun 2025. Architected and delivered 12+ REST API
+              endpoints for a multi-vendor e-commerce platform, reducing average
+              API response time by 35% through indexing and query optimization on
+              PostgreSQL schemas with 15+ normalized tables. Implemented JWT-based
+              authentication with RBAC across 3 roles, deployed 4 microservices to
+              AWS EC2 with S3 integration, and streamlined CI/CD workflows cutting
+              deployment time from 45 to under 8 minutes.
             </p>
           </div>
           <div className="career-info-box">

@@ -91,9 +91,9 @@ const WhatIDo = () => {
               <h4>Scalable Backend Architecture</h4>
               <p>
                 I design and build robust backend systems using Java, Spring
-                Boot, and REST APIs with JWT authentication, microservices
-                architecture, and optimized database schemas for high-performance
-                applications.
+                Boot, and REST APIs with JWT authentication, microservices,
+                event-driven messaging with Kafka, and optimized database schemas
+                for high-performance, production-grade applications.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
@@ -101,6 +101,7 @@ const WhatIDo = () => {
                 <div className="what-tags">Spring Boot</div>
                 <div className="what-tags">REST APIs</div>
                 <div className="what-tags">Microservices</div>
+                <div className="what-tags">Kafka</div>
                 <div className="what-tags">PostgreSQL</div>
                 <div className="what-tags">MySQL</div>
                 <div className="what-tags">MongoDB</div>
@@ -131,20 +132,23 @@ const WhatIDo = () => {
               <h3>CLOUD & DEVOPS</h3>
               <h4>Cloud-Native Development & Deployment</h4>
               <p>
-                I architect cloud solutions on AWS, containerize applications
-                with Docker, and implement CI/CD pipelines with Kubernetes for
-                reliable, scalable deployments.
+                I architect cloud solutions on AWS (EC2, S3), containerize
+                services with Docker, and implement CI/CD pipelines, log-based
+                monitoring, and structured observability for reliable, scalable
+                deployments.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
                 <div className="what-tags">AWS</div>
                 <div className="what-tags">Docker</div>
                 <div className="what-tags">Kubernetes</div>
+                <div className="what-tags">Terraform</div>
                 <div className="what-tags">CI/CD</div>
                 <div className="what-tags">Git</div>
-                <div className="what-tags">React</div>
-                <div className="what-tags">JavaScript</div>
+                <div className="what-tags">Linux</div>
+                <div className="what-tags">Elasticsearch</div>
                 <div className="what-tags">Python</div>
+                <div className="what-tags">Structured Logging</div>
               </div>
               <div className="what-arrow"></div>
             </div>

@@ -5,25 +5,40 @@ import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 const projects = [
   {
-    title: "Ticket Reservation System",
-    category: "High-Throughput Backend Service",
-    tools: "Spring Boot, PostgreSQL, Redis, Docker",
+    title: "Async Notification Dispatch Engine",
+    category: "Event-Driven Microservice",
+    tools: "Spring Boot · Kafka · SendGrid/Twilio API · PostgreSQL · Docker",
     image: "/public/ticket.jpeg",
-    link: "https://github.com/biv3k224/High-Throughput-Ticket-Reservation-System",
+    link: "https://github.com/biv3k224",
+    highlights: [
+      "Reduced notification delivery latency from ~4.2s to under 800ms",
+      "Handled 50,000+ test notification events during integration testing",
+      "97% of failed deliveries recovered via Kafka dead-letter retry strategy",
+    ],
+  },
+  {
+    title: "Intelligent Log Aggregator with Anomaly Alerting",
+    category: "Observability & Monitoring Pipeline",
+    tools: "Spring Boot · Kafka · Elasticsearch · Python · Docker Compose",
+    image: "/public/maze.jpeg",
+    link: "https://github.com/biv3k224",
+    highlights: [
+      "Full-text search across 1M+ log records in under 300ms via Elasticsearch",
+      "91% precision anomaly detection — Slack alerts within 10 seconds",
+      "Reduced MTTD from ~12 minutes to under 90 seconds",
+    ],
   },
   {
     title: "Real-Time Chat App",
     category: "Full-Stack Messaging Platform",
-    tools: "Spring Boot WebSocket, STOMP, MongoDB, React, Docker Compose",
+    tools: "Spring Boot WebSocket · STOMP · MongoDB · React · Docker Compose",
     image: "/public/chat.jpeg",
     link: "https://github.com/biv3k224/chatApp",
-  },
-  {
-    title: "Maze Solver",
-    category: "Algorithm Visualization Engine",
-    tools: "Spring Boot Microservices, BFS/DFS, REST APIs, Docker, Maven",
-    image: "/public/maze.jpeg",
-    link: "https://github.com/biv3k224/Maze",
+    highlights: [
+      "Real-time bidirectional messaging over WebSocket/STOMP protocol",
+      "JWT-secured endpoints with role-based access control",
+      "Containerized with Docker Compose for single-command local spin-up",
+    ],
   },
 ];
 
@@ -100,9 +115,16 @@ const Work = () => {
                           {project.category}
                         </p>
                         <div className="carousel-tools">
-                          <span className="tools-label">Tools & Features</span>
+                          <span className="tools-label">Tools & Stack</span>
                           <p>{project.tools}</p>
                         </div>
+                        {project.highlights && (
+                          <ul className="carousel-highlights">
+                            {project.highlights.map((h, i) => (
+                              <li key={i}>{h}</li>
+                            ))}
+                          </ul>
+                        )}
                       </div>
                     </div>
                     <div className="carousel-image-wrapper">
