@@ -92,20 +92,24 @@ const WhatIDo = () => {
               <p>
                 I design and build robust backend systems using Java, Spring
                 Boot, and REST APIs with JWT authentication, microservices,
-                event-driven messaging with Kafka, and optimized database schemas
-                for high-performance, production-grade applications.
+                event-driven messaging with Kafka, and GraphQL endpoints with
+                Apollo Client — delivering TDD-driven, production-grade
+                applications.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">Java</div>
+                <div className="what-tags">Java 11/17</div>
                 <div className="what-tags">Spring Boot</div>
                 <div className="what-tags">REST APIs</div>
+                <div className="what-tags">GraphQL</div>
                 <div className="what-tags">Microservices</div>
                 <div className="what-tags">Kafka</div>
+                <div className="what-tags">Spring AOP</div>
                 <div className="what-tags">PostgreSQL</div>
-                <div className="what-tags">MySQL</div>
-                <div className="what-tags">MongoDB</div>
+                <div className="what-tags">Oracle DB</div>
                 <div className="what-tags">Redis</div>
+                <div className="what-tags">HQL/Hibernate</div>
+                <div className="what-tags">TDD</div>
               </div>
               <div className="what-arrow"></div>
             </div>
@@ -132,23 +136,25 @@ const WhatIDo = () => {
               <h3>CLOUD & DEVOPS</h3>
               <h4>Cloud-Native Development & Deployment</h4>
               <p>
-                I architect cloud solutions on AWS (EC2, S3), containerize
-                services with Docker, and implement CI/CD pipelines, log-based
-                monitoring, and structured observability for reliable, scalable
-                deployments.
+                I architect cloud solutions on AWS (EC2, S3, Lambda,
+                ElastiCache), containerize services with Docker, implement
+                GitOps-based deployments with OpenShift, and monitor with
+                Prometheus and Grafana for reliable, observable deployments.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">AWS</div>
+                <div className="what-tags">AWS Lambda</div>
+                <div className="what-tags">OpenShift</div>
                 <div className="what-tags">Docker</div>
-                <div className="what-tags">Kubernetes</div>
-                <div className="what-tags">Terraform</div>
+                <div className="what-tags">CodePipeline</div>
+                <div className="what-tags">Prometheus</div>
+                <div className="what-tags">Grafana</div>
+                <div className="what-tags">GitOps</div>
                 <div className="what-tags">CI/CD</div>
+                <div className="what-tags">ElastiCache</div>
                 <div className="what-tags">Git</div>
-                <div className="what-tags">Linux</div>
-                <div className="what-tags">Elasticsearch</div>
-                <div className="what-tags">Python</div>
-                <div className="what-tags">Structured Logging</div>
+                <div className="what-tags">Jenkins</div>
+                <div className="what-tags">Maven/Nexus</div>
               </div>
               <div className="what-arrow"></div>
             </div>

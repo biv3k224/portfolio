@@ -6,13 +6,13 @@ const About = () => {
       <div className="about-me">
         <h3 className="title">About Me</h3>
         <p className="para">
-          Software Engineer with hands-on experience designing and shipping
-          production-grade backend systems using Java, Spring Boot, and AWS.
-          Proven track record of building scalable microservices, optimizing
-          high-traffic databases, and delivering secure cloud-deployed APIs in
-          Agile environments. Adept at owning features end-to-end — from schema
-          design to containerized deployment — with a growing focus on
-          distributed systems and event-driven architecture.
+          Sr. Backend Engineer with production experience at American Airlines,
+          specializing in Java, Spring Boot, and AWS cloud-native architecture.
+          Built and maintained REST microservices with Spring AOP and Actuator,
+          implemented GitOps-based deployments with OpenShift, and delivered
+          serverless functions with AWS Lambda. Passionate about distributed
+          systems, event-driven architecture with Kafka, and full-stack
+          observability using Prometheus and Grafana.
         </p>
       </div>
     </div>

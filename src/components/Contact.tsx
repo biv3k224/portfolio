@@ -30,7 +30,7 @@ const Contact = () => {
             <p>330-338-8063</p>
             <h4>Education</h4>
             <p>
-              B.S. Computer Science, Youngstown State University — May 2026
+              B.S. Computer Science, Youngstown State University
             </p>
           </div>
           <div className="contact-box">
